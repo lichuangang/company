@@ -12,8 +12,8 @@ util.title = function(title) {
 const ajaxUrl = env === 'development' ?
     'http://106.14.15.78:9999' :
     env === 'production' ?
-    'http://106.14.15.78:9999' :
-    'http://106.14.15.78:9999';
+    'https://www.beantu.cc/new' :
+    'https://www.beantu.cc/new';
 
 util.ajax = axios.create({
     baseURL: ajaxUrl,

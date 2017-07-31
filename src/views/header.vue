@@ -3,7 +3,7 @@
         <Row>
             <Col span="16">
             <div v-if="pageLevel==1">
-                <img src="src/images/logo.png" alt="">
+                <img src="imgs/logo.png" alt="">
             </div>
             <div v-if="pageLevel==2" class="rtn_div" @click="goBack">
                 <Icon style="line-height:35px;font-size:25px;" type="arrow-left-c"></Icon>
@@ -17,7 +17,7 @@
             <Button v-if="pageLevel==2" class="btn_push" type="primary" shape="circle" @click="clickFunc">发表评论</Button>
             </Col>
         </Row>
-    
+
         <Modal v-model="show" title="发布新动态" :loading="loading">
             <Alert v-if="error" type="error" show-icon>
                 错误提示
@@ -85,10 +85,6 @@ export default {
                     });
                 }
             })
-
-
-
-
         },
         cancel() {
             this.show = false;
@@ -97,7 +93,8 @@ export default {
             this.doFunc();
         },
         goBack() {
-            this.$router.back(-1)
+            window.close();
+            //this.$router.back(-1)
         }
     }
 }
@@ -148,5 +145,3 @@ export default {
     margin-left: 10px;
 }
 </style>
-
-
