@@ -104,7 +104,7 @@
                 更多...
             </router-link>
             <ul>
-                <li v-for="item in homeData.buries" :key="item.id">
+                <li v-for="item in homeData.diggs" :key="item.id">
                     <router-link target="_blank" :to="'info/'+item.id">
                         <div class="cpn_name" v-text="item.name">
                         </div>
@@ -125,7 +125,7 @@
                 更多...
             </router-link>
             <ul>
-                <li v-for="item in homeData.diggs" key="item.id">
+                <li v-for="item in homeData.buries" :key="item.id">
                     <router-link target="_blank" :to="'info/'+item.id">
                         <div class="cpn_name" v-text="item.name">
                         </div>
