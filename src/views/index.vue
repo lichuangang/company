@@ -56,21 +56,6 @@
                 </a>
             </div>
         </Carousel-item>
-        <!-- <Carousel-item>
-            <div class="tab">
-                <img src="/src/images/img2.jpg" alt="">
-            </div>
-        </Carousel-item>
-        <Carousel-item>
-            <div class="tab">
-                <img src="/src/images/img1.jpg" alt="">
-            </div>
-        </Carousel-item>
-        <Carousel-item>
-            <div class="tab">
-                <img src="/src/images/img2.jpg" alt="">
-            </div>
-        </Carousel-item> -->
     </Carousel>
     <div class="content">
         <Card style="width:100%">
