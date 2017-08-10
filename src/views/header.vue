@@ -9,7 +9,7 @@
                 <Icon style="line-height:35px;font-size:25px;" type="arrow-left-c"></Icon>
             </div>
             <div class="title">
-                重庆求职防坑手册
+                求职防坑手册
             </div>
             </Col>
             <Col span="8" style="text-align: right">
