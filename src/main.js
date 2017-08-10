@@ -24,6 +24,10 @@ const router = new VueRouter(RouterConfig);
 router.beforeEach((to, from, next) => {
     iView.LoadingBar.start();
     Util.title(to.meta.title);
+
+    document.querySelector('meta[name="keywords"]').setAttribute('content', to.meta.keywords)
+    document.querySelector('meta[name="description"]').setAttribute('content', to.meta.keywords.description)
+
     next();
 });
 
