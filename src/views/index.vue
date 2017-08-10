@@ -48,7 +48,7 @@
 <template>
 <div class="index">
     <MyHeader page-level="1"></MyHeader>
-    <Carousel v-if="homeData.banners.length > 0" autoplay v-model="tabIndex" style="margin-top:5px">
+    <Carousel v-if="homeData.banners.length > 0" autoplay :autoplay-speed="5000" v-model="tabIndex" style="margin-top:5px">
         <Carousel-item v-for="item in homeData.banners" :key="item">
             <div class="tab">
                 <a target="_blank" :href="item.url" :alt="item.title">
