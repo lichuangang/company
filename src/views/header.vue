@@ -1,5 +1,5 @@
 <template>
-    <div class="header">
+    <div class="header" onclick="window.open('https://beantu.cc','_self')">
         <Row>
             <Col span="16">
             <div v-if="pageLevel==1">
