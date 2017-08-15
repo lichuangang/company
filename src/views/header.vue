@@ -1,5 +1,5 @@
 <template>
-    <div class="header" onclick="window.open('https://beantu.cc','_self')">
+    <div class="header">
         <Row>
             <Col span="16">
             <div v-if="pageLevel==1">
@@ -8,7 +8,7 @@
             <div v-if="pageLevel==2" class="rtn_div" @click="goBack">
                 <Icon style="line-height:35px;font-size:25px;" type="arrow-left-c"></Icon>
             </div>
-            <div class="title">
+            <div class="title" onclick="window.open('https://beantu.cc','_self')">
                 求职防坑手册
             </div>
             </Col>
