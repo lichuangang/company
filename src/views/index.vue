@@ -63,7 +63,7 @@
                 <Icon type="chatboxes"></Icon>
                 活跃榜
             </p>
-            <router-link target="_blank" to="grid/1" slot="extra">
+            <router-link target="_blank" to="grid/0" slot="extra">
                 <Icon type="more"></Icon>
                 更多...
             </router-link>
