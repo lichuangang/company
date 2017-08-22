@@ -2,7 +2,7 @@
 <div>
     <MyHeader page-level=1></MyHeader>
     <Card style="width:100%">
-        <p v-if="sort==1" slot="title">
+        <p v-if="sort==0" slot="title">
             <Icon type="chatboxes"></Icon>
             活跃榜
         </p>
