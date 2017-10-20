@@ -5,7 +5,7 @@
             <div v-if="pageLevel==1">
                 <img src="imgs/logo.png" alt="">
             </div>
-            <div v-if="pageLevel==2" class="rtn_div" @click="goBack">
+            <div v-if="pageLevel==2 || pageLevel==3" class="rtn_div" @click="goBack">
                 <Icon style="line-height:35px;font-size:25px;" type="arrow-left-c"></Icon>
             </div>
             <div class="title" onclick="window.open('https://beantu.cc','_self')">
@@ -13,6 +13,9 @@
             </div>
             </Col>
             <Col span="8" style="text-align: right">
+            <router-link target='_blank' :to="'/search'">
+                <Button v-if="pageLevel==1" class="btn_push" type="success" icon="ios-search" shape="circle">搜索</Button>
+            </router-link>
             <Button v-if="pageLevel==1" class="btn_push" type="primary" shape="circle" @click="open">新发布</Button>
             <Button v-if="pageLevel==2" class="btn_push" type="primary" shape="circle" @click="clickFunc">发表评论</Button>
             </Col>
@@ -45,103 +48,102 @@
 </template>
 
 <script>
-import Util from '../libs/util';
+import Util from "../libs/util";
 export default {
-    props: ['pageLevel', 'doFunc'],
-    data() {
-        return {
-            show: false,
-            loading: false,
-            error: '',
-            formItem: {
-                name: '',
-                desc: '',
-                address: ''
-            },
-            ruleValidate: {
-                name: [{ required: true, message: '公司名称不能为空', trigger: 'blur' }],
-                desc: [{ required: true, message: '描述信息不能为空', trigger: 'blur' }]
-            }
-        }
+  props: ["pageLevel", "doFunc"],
+  data() {
+    return {
+      show: false,
+      loading: false,
+      error: "",
+      formItem: {
+        name: "",
+        desc: "",
+        address: ""
+      },
+      ruleValidate: {
+        name: [{ required: true, message: "公司名称不能为空", trigger: "blur" }],
+        desc: [{ required: true, message: "描述信息不能为空", trigger: "blur" }]
+      }
+    };
+  },
+  methods: {    
+    open() {
+      this.show = true;
     },
-    methods: {
-        open() {
-            this.show = true;
-        },
-        ok() {
-            var that = this;
-
-            this.$refs.formValidate.validate(ok => {
-                if (ok) {
-                    that.loading = true;
-                    Util.ajax.post('companies', that.formItem).then(rs => {
-                        that.loading = false;
-                        if (rs.data.success) {
-                            that.cancel();
-                            window.location.reload();
-                        } else {
-                            that.error = rs.data.msg;
-                        }
-                    });
-                }
-            })
-        },
-        cancel() {
-            this.show = false;
-        },
-        clickFunc() {
-            this.doFunc();
-        },
-        goBack() {
-            window.close();
-            //this.$router.back(-1)
+    ok() {
+      var that = this;
+      this.$refs.formValidate.validate(ok => {
+        if (ok) {
+          that.loading = true;
+          Util.ajax.post("companies", that.formItem).then(rs => {
+            that.loading = false;
+            if (rs.data.success) {
+              that.cancel();
+              window.location.reload();
+            } else {
+              that.error = rs.data.msg;
+            }
+          });
         }
+      });
+    },
+    cancel() {
+      this.show = false;
+    },
+    clickFunc() {
+      this.doFunc();
+    },
+    goBack() {
+      window.close();
+      //this.$router.back(-1)
     }
-}
+  }
+};
 </script>
 
 <style scoped>
 .rtn_div {
-    margin-top: 12px;
-    height: 35px;
-    width: 35px;
-    border-radius: 17px;
-    background: #2d8cf0;
-    line-height: 35px;
-    text-align: center;
-    color: white;
-    float: left;
-    cursor: pointer;
-    margin-left: 12px;
+  margin-top: 12px;
+  height: 35px;
+  width: 35px;
+  border-radius: 17px;
+  background: #2d8cf0;
+  line-height: 35px;
+  text-align: center;
+  color: white;
+  float: left;
+  cursor: pointer;
+  margin-left: 12px;
 }
 
 .rtn_div:hover {
-    background: #57a3f3
+  background: #57a3f3;
 }
 
 .btn_push {
-    margin-top: 15px;
-    margin-right: 5px;
+  margin-top: 15px;
+  margin-right: 5px;
 }
 
 .header {
-    height: 60px;
-    background-color: #5cb9eb;
-    text-align: left;
+  height: 60px;
+  background-color: #5cb9eb;
+  text-align: left;
 }
 
 .header img {
-    height: 50px;
-    margin-left: 10px;
-    margin-top: 5px;
-    float: left;
+  height: 50px;
+  margin-left: 10px;
+  margin-top: 5px;
+  float: left;
 }
 
 .title {
-    float: left;
-    color: white;
-    font-size: 18px;
-    line-height: 50px;
-    margin-left: 10px;
+  float: left;
+  color: white;
+  font-size: 18px;
+  line-height: 50px;
+  margin-left: 10px;
 }
 </style>
